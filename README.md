@@ -35,16 +35,14 @@ Crie uma aplicação single page:
 
 Faça a modelagem de dados Orientada a Objeto para o form anterior.
 
-### Dica
-
-
-
-
 ### PHP
 
 Qual o retrono deste código?
+
 $string = 'php';
+
 $string++;
+
 echo $string;
 
 ### Banco de Dados SQL
