@@ -73,12 +73,18 @@ echo $string;
 
  - Diga qual o retorno das query's abaixo;
 
-"select convert(datetime, '2020-03-01 00:00:00', 103);"
-"select convert(datetime, '01/03/2020 00:00:00', 103);"
-"select convert(datetime, '2020-03-01 00:00:00', 121);"
-"select convert(datetime, '01/03/2020 00:00:00', 121);"
-"select convert(datetime, '01/03/2020 00:00:00', 22);"
-"select convert(datetime, '2020-03-01 00:00:00', 22);"
-"select convert(datetime, '01/03/2020 00:00:00', 101);"
+	"select convert(datetime, '2020-03-01 00:00:00', 103);"
+
+	"select convert(datetime, '01/03/2020 00:00:00', 103);"
+
+	"select convert(datetime, '2020-03-01 00:00:00', 121);"
+
+	"select convert(datetime, '01/03/2020 00:00:00', 121);"
+
+	"select convert(datetime, '01/03/2020 00:00:00', 22);"
+
+	"select convert(datetime, '2020-03-01 00:00:00', 22);"
+
+	"select convert(datetime, '01/03/2020 00:00:00', 101);"
 
  - Descreva as diferenças dos JOINS;
