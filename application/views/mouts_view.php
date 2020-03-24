@@ -187,8 +187,8 @@
 
 		<div class="modal-footer">
 			<input type="hidden" name="id_delete" id="id_delete" class="form-control">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-				<button type="button" type="submit" id="btn_delete" class="btn btn-primary">Yes</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+				<button type="button" type="submit" id="btn_delete" class="btn btn-primary">Sim</button>
 		</div>
 
 	</div>
@@ -230,7 +230,8 @@
 											'<td>'+data[i].campo_tres+'</td>'+
 											'<td>'+data[i].campo_quatro+'</td>'+
 											'<td style="text-align:right;">'+
-												'<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id="'+data[i].id+
+												'<div class="btn-group">'+
+												'<a href="javascript:void(0);" class="btn btn-warning btn-sm item_edit" data-id="'+data[i].id+
 													'" data-campo_um="'+data[i].campo_um+
 													'" data-campo_dois="'+data[i].campo_dois+
 													'" data-campo_tres="'+data[i].campo_tres+
@@ -238,6 +239,7 @@
 												'">Editar</a>'+' '+
 
 												'<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id="'+data[i].id+'">Excluir</a>'+
+												'</div>'+
 											'</td>'+
 										'</tr>';
 							}
