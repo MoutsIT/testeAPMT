@@ -14,7 +14,12 @@
 
 ```
 
+**`OBS`** Necessário configurar a 'base_url' em '/config/config.php' e os devidos campos em '/config/database.php'; estrutura da tabela utilizada no BD está no arquivo 'mouts.sql'
+
+
 # Listagem de Livros
+
+*`OBS`* Apesar dessa indicação de 'listagem de livros' aparecer aqui, criei um CRUD genérico, sem campos específicos
 
 - Faça um fork deste repositorio, assim que finalizar o desafio realize o pull request.
 
