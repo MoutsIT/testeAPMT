@@ -102,4 +102,5 @@ echo $string;
 	mm/dd/yyyy
 
  - Descreva as diferenças dos JOINS;
+ 
 **Resposta**: INNER JOIN retorna apenas os resultados da intersecção estipulada no *ON*; LEFT JOIN retorna os resultados da intersecção e mais os registros da tabela à esquerda na querie (campos da tabela à direita ficam em NULL); RIGHT JOIN retorna os resultados da intersecção e os demais registros da tabela à direita da querie (campos da tabela à esquerda ficam em NULL); OUTER JOIN retorna os resultados da intersecção e mais os registros restantes das duas tabelas, com os devidos campos em NULL
