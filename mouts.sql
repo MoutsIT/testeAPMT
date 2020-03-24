@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `mouts` (
   `campo_tres` varchar(255) DEFAULT NULL,
   `campo_quatro` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Data exporting was unselected.
 
