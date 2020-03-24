@@ -64,7 +64,7 @@ echo $string;
 	Where 
 	1 = 1  AND status = 1;"
 
-**Resposta**: `select nome, sobrenome, CASE WHEN status = 1 THEN 'ATIVO' END AS status From usuario Where  status = 1;`
+**Resposta**: `SELECT nome, sobrenome, CASE WHEN status = 1 THEN 'ATIVO' END AS status FROM usuario WHERE  status = 1;`
 
  - Essa tabela possui os seguintes campos (id, nome, id_uf, data_cadastro, status);
 
@@ -73,7 +73,7 @@ echo $string;
 	Where 
 	1 = 1  AND status = 1;" 
 
-**Resposta**: `select top 50 * From cidades Where status = 1;`
+**Resposta**: `SELECT TOP 50 * FROM cidades WHERE status = 1;`
 
  - Essa tabela possui os seguintes campos (id, uf, data_cadastro, status);
 
@@ -82,7 +82,7 @@ echo $string;
 	Where 
 	1 = 1  AND status = 1;"
 
-**Resposta**: `select top 50 * From estados Where status = 1;` (apenas removi o '1 = 1')
+**Resposta**: `SELECT TOP 50 * FROM estados WHERE status = 1;` (apenas removi o '1 = 1', mas manti o limite de 50, apesar de não existirem 50 UF)
 
  - Diga qual o retorno das query's abaixo;
 
@@ -90,23 +90,18 @@ echo $string;
 
 	"select convert(datetime, '01/03/2020 00:00:00', 103);"
 	
-	dd/mm/yyyy
-
 	"select convert(datetime, '2020-03-01 00:00:00', 121);"
 
 	"select convert(datetime, '01/03/2020 00:00:00', 121);"
 	
-	yyyy-mm-dd hh:mm:ss.---
-
 	"select convert(datetime, '01/03/2020 00:00:00', 22);"
 
 	"select convert(datetime, '2020-03-01 00:00:00', 22);"
 
-	mm/dd/yy hh:mm:ss AM
-
 	"select convert(datetime, '01/03/2020 00:00:00', 101);"
 	
-	mm/dd/yyyy
+
+**Resposta**: `Conferi os códigos e 13 formata em *dd/mm/yyyy*; 121 em *yyyy-mm-dd H:i:s*; 22 em *mm/dd/yy H:i:s A*; e 101 em *mm/dd/yyyy*; porém não tenho experiência o suficiente com SQLServer para apontar, sem testar, qual é o formato de data que ele reconhece`
 
  - Descreva as diferenças dos JOINS;
  
