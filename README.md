@@ -50,6 +50,8 @@ $string++;
 
 echo $string;
 
+**Resposta**: `phq`
+
 ### Banco de Dados SQL
 
  - Identifique os erros e/ou melhore as query's SQL abaixo:
