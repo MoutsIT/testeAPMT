@@ -1,90 +1,66 @@
-```
+# CodeIgniter 4 Application Starter
 
-      ___           ___           ___                         ___     
-     /  /\         /  /\         /  /\          ___          /  /\    
-    /  /::|       /  /::\       /  /:/         /__/\        /  /::\   
-   /  /:|:|      /  /:/\:\     /  /:/          \  \:\      /__/:/\:\  
-  /  /:/|:|__   /  /:/  \:\   /  /:/            \__\:\    _\_ \:\ \:\ 
- /__/:/_|::::\ /__/:/ \__\:\ /__/:/     /\      /  /::\  /__/\ \:\ \:\
- \__\/  /~~/:/ \  \:\ /  /:/ \  \:\    /:/     /  /:/\:\ \  \:\ \:\_\/
-       /  /:/   \  \:\  /:/   \  \:\  /:/     /  /:/__\/  \  \:\_\:\  
-      /  /:/     \  \:\/:/     \  \:\/:/     /__/:/        \  \:\/:/  
-     /__/:/       \  \::/       \  \::/      \__\/          \  \::/   
-     \__\/         \__\/         \__\/                       \__\/    
+## What is CodeIgniter?
 
-```
+CodeIgniter is a PHP full-stack web framework that is light, fast, flexible, and secure. 
+More information can be found at the [official site](http://codeigniter.com).
 
-# Listagem de Livros
+This repository holds a composer-installable app starter.
+It has been built from the 
+[development repository](https://github.com/codeigniter4/CodeIgniter4).
 
-- Faça um fork deste repositorio, assim que finalizar o desafio realize o pull request.
+**This is pre-release code and should not be used in production sites.**
 
-Requisitos:
+More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
 
-- PHP = 5.3
-- CodeIgniter
-- Bootstrap >= 4
-- Jquery
+The user guide corresponding to this version of the framework can be found
+[here](https://codeigniter4.github.io/userguide/). 
 
+## Installation & updates
 
-#### Descrição
+`composer create-project codeigniter4/appstarter` then `composer update` whenever
+there is a new release of the framework.
 
- - Crie um CRUD single page: 
-	contendo uma listagem;
-	Uma tela de cadastro contendo no minimo 4 campos distintos. 
-	Faça a navegação entre as mesmas pelo Jquery.
+When updating, check the release notes to see if there are any changes you might need to apply
+to your `app` folder. The affected files can be copied or merged from
+`vendor/codeigniter4/framework/app`.
 
- - Faça a modelagem de dados Orientada a Objeto para o form anterior.
+## Setup
 
-### PHP
+Copy `env` to `.env` and tailor for your app, specifically the baseURL
+and any database settings.
 
- - Qual o retrono deste código?
+## Important Change with index.php
 
-$string = 'php';
+`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
+for better security and separation of components.
 
-$string++;
+This means that you should configure your web server to "point" to your project's *public* folder, and
+not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
+framework are exposed.
 
-echo $string;
+**Please** read the user guide for a better explanation of how CI4 works!
+The user guide updating and deployment is a bit awkward at the moment, but we are working on it!
 
-### Banco de Dados SQL
+## Repository Management
 
- - Identifique os erros e/ou melhore as query's SQL abaixo:
-	
- - Essa tabela possui os seguintes campos (id, nome, sobrenome, data_cadastro, status);
+We use Github issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
+We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
+FEATURE REQUESTS.
 
-	"select 
-	nome, sobrenome, CASE status = 1 then 'ATIVO' end status
-	From usuario  
-	Where 
-	1 = 1  AND status = 1;"
+This repository is a "distribution" one, built by our release preparation script. 
+Problems with it can be raised on our forum, or as issues in the main repository.
 
- - Essa tabela possui os seguintes campos (id, nome, id_uf, data_cadastro, status);
+## Server Requirements
 
-	"select	top(50) *
-	From cidades  
-	Where 
-	1 = 1  AND status = 1;" 
+PHP version 7.2 or higher is required, with the following extensions installed: 
 
- - Essa tabela possui os seguintes campos (id, uf, data_cadastro, status);
+- [intl](http://php.net/manual/en/intl.requirements.php)
+- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
 
-	"select	top 50 *
-	From estados  
-	Where 
-	1 = 1  AND status = 1;"
+Additionally, make sure that the following extensions are enabled in your PHP:
 
- - Diga qual o retorno das query's abaixo;
-
-	"select convert(datetime, '2020-03-01 00:00:00', 103);"
-
-	"select convert(datetime, '01/03/2020 00:00:00', 103);"
-
-	"select convert(datetime, '2020-03-01 00:00:00', 121);"
-
-	"select convert(datetime, '01/03/2020 00:00:00', 121);"
-
-	"select convert(datetime, '01/03/2020 00:00:00', 22);"
-
-	"select convert(datetime, '2020-03-01 00:00:00', 22);"
-
-	"select convert(datetime, '01/03/2020 00:00:00', 101);"
-
- - Descreva as diferenças dos JOINS;
+- json (enabled by default - don't turn it off)
+- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
+- xml (enabled by default - don't turn it off)
