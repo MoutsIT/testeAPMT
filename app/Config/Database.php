@@ -30,11 +30,11 @@ class Database extends \CodeIgniter\Database\Config
 	 * @var array
 	 */
 	public $default = [
-		'DSN'      => 'pgsql:host=localhost; port=5433; dbname=contacts; password=a; user=postgres;',
+		'DSN'      => 'pgsql:host=localhost; port=5433; dbname=books; password=a; user=postgres;',
 		//'hostname' => 'localhost',
-		'username' => 'contacts',
+		'username' => 'postgres',
 		'password' => 'a',
-		'database' => 'contacts',
+		'database' => 'books',
 		'DBDriver' => 'Postgre',
 		'DBPrefix' => '',
 		'pConnect' => false,

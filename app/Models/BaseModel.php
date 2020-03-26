@@ -20,8 +20,9 @@ class BaseModel extends Model {
         return $query->getResult();
     }
  
-    public function get_by_id($id) {
-      $query =  $this->db->query("select * from {$this->table} where book_id = $id");
+    public function get_by_id($id) 
+    {
+      $query =  $this->db->query("select * from {$this->table} where id = $id");
        
       return $query->getRow();
     }
@@ -41,7 +42,7 @@ class BaseModel extends Model {
  
     public function delete_by_id($id)
     {
-        $this->db->table($this->table)->delete(array('book_id' => $id)); 
+        $this->db->table($this->table)->delete(array('id' => $id)); 
     }
  
 }

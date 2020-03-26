@@ -16,7 +16,7 @@
     
     <div class="row">
       <div class="col-12">
-        <h3>Livros</h3>
+        <h3>Livros <i class="fa fa3x fa-book"></i></h3>
         <button class="btn btn-success float-right" onclick="add_book()"><i class="fa fa-plus-square"></i> Adicionar Livro</button>
       </div>
     </div>
@@ -36,16 +36,16 @@
               </tr>
             </thead>
             <tbody>
-            <?php foreach ($books as $book) : ?>
+            <?php foreach ($books as $item) : ?>
             <tr>
-              <td><?php echo $book->book_id;?></td>
-              <td><?php echo $book->book_isbn;?></td>
-              <td><?php echo $book->book_title;?></td>
-              <td><?php echo $book->book_author;?></td>
-              <td><?php echo $book->book_category;?></td>
+              <td><?php echo $item->id;?></td>
+              <td><?php echo $item->book_isbn;?></td>
+              <td><?php echo $item->book_title;?></td>
+              <td><?php echo $item->book_author;?></td>
+              <td><?php echo $item->book_category;?></td>
               <td>
-                  <button class="btn btn-warning" onclick="edit_book(<?php echo $book->book_id;?>)"><i class="fa fa-edit"></i></button>
-                  <button class="btn btn-danger" onclick="delete_book(<?php echo $book->book_id;?>)"><i class="fa fa-trash"></i></button>
+                  <button class="btn btn-warning" onclick="edit_book(<?php echo $item->id;?>)"><i class="fa fa-edit"></i></button>
+                  <button class="btn btn-danger" onclick="delete_book(<?php echo $item->id;?>)"><i class="fa fa-trash"></i></button>
               </td>
             </tr>
             <?php endforeach ?>
@@ -80,7 +80,7 @@
 
       <div class="modal-body form">
         <form action="#" id="form" class="form-horizontal">
-          <input type="hidden" value="" name="book_id" />
+          <input type="hidden" value="" name="id" />
           <div class="form-body">
             <div class="form-group">
               <label class="control-label col-md-3">ISBN</label>
@@ -159,7 +159,7 @@
         dataType: "JSON",
         success: function(data)
         {
-            $('[name="book_id"]').val(data.book_id);
+            $('[name="id"]').val(data.id);
             $('[name="book_isbn"]').val(data.book_isbn);
             $('[name="book_title"]').val(data.book_title);
             $('[name="book_author"]').val(data.book_author);

@@ -59,7 +59,8 @@ class BookController extends Controller {
             'book_category' => $this->request->getPost('book_category'),
         );
 
-        $this->Book->book_update(array('book_id' => $this->request->getPost('book_id')), $data);
+        $this->Book->book_update(array('id' => $this->request->getPost('id')), $data);
+        
         echo json_encode(array("status" => TRUE));
     }
  

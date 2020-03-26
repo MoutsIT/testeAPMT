@@ -1,66 +1,118 @@
-# CodeIgniter 4 Application Starter
+```
 
-## What is CodeIgniter?
+      ___           ___           ___                         ___     
+     /  /\         /  /\         /  /\          ___          /  /\    
+    /  /::|       /  /::\       /  /:/         /__/\        /  /::\   
+   /  /:|:|      /  /:/\:\     /  /:/          \  \:\      /__/:/\:\  
+  /  /:/|:|__   /  /:/  \:\   /  /:/            \__\:\    _\_ \:\ \:\ 
+ /__/:/_|::::\ /__/:/ \__\:\ /__/:/     /\      /  /::\  /__/\ \:\ \:\
+ \__\/  /~~/:/ \  \:\ /  /:/ \  \:\    /:/     /  /:/\:\ \  \:\ \:\_\/
+       /  /:/   \  \:\  /:/   \  \:\  /:/     /  /:/__\/  \  \:\_\:\  
+      /  /:/     \  \:\/:/     \  \:\/:/     /__/:/        \  \:\/:/  
+     /__/:/       \  \::/       \  \::/      \__\/          \  \::/   
+     \__\/         \__\/         \__\/                       \__\/    
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible, and secure. 
-More information can be found at the [official site](http://codeigniter.com).
+```
 
-This repository holds a composer-installable app starter.
-It has been built from the 
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+OBSERVAÇÃO: o diretório vendor e writeable foram adicionados ao ignore.
 
-**This is pre-release code and should not be used in production sites.**
+# Listagem de Livros
+- Faça um fork deste repositorio, assim que finalizar o desafio realize o pull request.
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+Requisitos:
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/). 
+- PHP = 5.3
+- CodeIgniter
+- Bootstrap >= 4
+- Jquery
 
-## Installation & updates
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+#### Descrição
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+ - Crie um CRUD single page: 
+	contendo uma listagem;
+	Uma tela de cadastro contendo no minimo 4 campos distintos. 
+	Faça a navegação entre as mesmas pelo Jquery.
 
-## Setup
+ - Faça a modelagem de dados Orientada a Objeto para o form anterior.
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+### PHP
 
-## Important Change with index.php
+ - Qual o retrono deste código?
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+$string = 'php';
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+$string++;
 
-**Please** read the user guide for a better explanation of how CI4 works!
-The user guide updating and deployment is a bit awkward at the moment, but we are working on it!
+echo $string;
+Resposta: phq
 
-## Repository Management
+### Banco de Dados SQL
 
-We use Github issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+ - Identifique os erros e/ou melhore as query's SQL abaixo:
+	
+ - Essa tabela possui os seguintes campos (id, nome, sobrenome, data_cadastro, status);
 
-This repository is a "distribution" one, built by our release preparation script. 
-Problems with it can be raised on our forum, or as issues in the main repository.
+	"select 
+	nome, sobrenome, CASE status = 1 then 'ATIVO' end status
+	From usuario  
+	Where 
+	1 = 1  AND status = 1;"
 
-## Server Requirements
+    "select 
+	nome, sobrenome, IIF(status = 1, 'ATIVO', '')
+	From usuario  
+	Where status = 1;"
 
-PHP version 7.2 or higher is required, with the following extensions installed: 
+ - Essa tabela possui os seguintes campos (id, nome, id_uf, data_cadastro, status);
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+	"select	top(50) *
+	From cidades  
+	Where 
+	1 = 1  AND status = 1;" 
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+    "select	top(50) *
+	From cidades  
+	Where status = 1 ORDER BY nome;" sem o order by podem vir resultados iconsistentes 
 
-- json (enabled by default - don't turn it off)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-- xml (enabled by default - don't turn it off)
+ - Essa tabela possui os seguintes campos (id, uf, data_cadastro, status);
+
+	"select	top 50 *
+	From estados  
+	Where 
+	1 = 1  AND status = 1;"
+
+    "select	top 50 *
+	From estados  
+	Where status = 1 ORDER BY uf;"
+
+ - Diga qual o retorno das query's abaixo;
+
+	"select convert(datetime, '2020-03-01 00:00:00', 103);"
+    03/01/2020
+
+	"select convert(datetime, '01/03/2020 00:00:00', 103);"
+    01/03/2020
+
+	"select convert(datetime, '2020-03-01 00:00:00', 121);"
+    2020/03/01
+
+	"select convert(datetime, '01/03/2020 00:00:00', 121);"
+    2020/01/03
+
+	"select convert(datetime, '01/03/2020 00:00:00', 22);"
+    erro
+
+	"select convert(datetime, '2020-03-01 00:00:00', 22);"
+    erro
+
+	"select convert(datetime, '01/03/2020 00:00:00', 101);"
+    2020-01-03T00:00:00Z
+
+ - Descreva as diferenças dos JOINS;
+ Cross Join: vai combinar cada registro da primeira tabela com cada um da segunda.
+ Inner Join: requer que cada linha tenha valores correspondentes.
+ Left Join: dado duas tabelas A e B, retém as linhas da A mesmo que não exista dado na B.
+ Right Join: dado duas tabelas A e B, retém as linhas da B mesmo que não exista dado na A.
+ Outer Join: dado duas tabelas A e B, retém tanto de A como de B se o inverso não existir.
+
