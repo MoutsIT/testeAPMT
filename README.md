@@ -14,8 +14,9 @@
 
 ```
 
-# Listagem de Livros
+OBSERVAÇÃO: o diretório vendor e writeable foram adicionados ao ignore.
 
+# Listagem de Livros
 - Faça um fork deste repositorio, assim que finalizar o desafio realize o pull request.
 
 Requisitos:
@@ -44,6 +45,7 @@ $string = 'php';
 $string++;
 
 echo $string;
+Resposta: phq
 
 ### Banco de Dados SQL
 
@@ -57,12 +59,21 @@ echo $string;
 	Where 
 	1 = 1  AND status = 1;"
 
+    "select 
+	nome, sobrenome, IIF(status = 1, 'ATIVO', '')
+	From usuario  
+	Where status = 1;"
+
  - Essa tabela possui os seguintes campos (id, nome, id_uf, data_cadastro, status);
 
 	"select	top(50) *
 	From cidades  
 	Where 
 	1 = 1  AND status = 1;" 
+
+    "select	top(50) *
+	From cidades  
+	Where status = 1 ORDER BY nome;" sem o order by podem vir resultados iconsistentes 
 
  - Essa tabela possui os seguintes campos (id, uf, data_cadastro, status);
 
@@ -71,20 +82,37 @@ echo $string;
 	Where 
 	1 = 1  AND status = 1;"
 
+    "select	top 50 *
+	From estados  
+	Where status = 1 ORDER BY uf;"
+
  - Diga qual o retorno das query's abaixo;
 
 	"select convert(datetime, '2020-03-01 00:00:00', 103);"
+    03/01/2020
 
 	"select convert(datetime, '01/03/2020 00:00:00', 103);"
+    01/03/2020
 
 	"select convert(datetime, '2020-03-01 00:00:00', 121);"
+    2020/03/01
 
 	"select convert(datetime, '01/03/2020 00:00:00', 121);"
+    2020/01/03
 
 	"select convert(datetime, '01/03/2020 00:00:00', 22);"
+    erro
 
 	"select convert(datetime, '2020-03-01 00:00:00', 22);"
+    erro
 
 	"select convert(datetime, '01/03/2020 00:00:00', 101);"
+    2020-01-03T00:00:00Z
 
  - Descreva as diferenças dos JOINS;
+ Cross Join: vai combinar cada registro da primeira tabela com cada um da segunda.
+ Inner Join: requer que cada linha tenha valores correspondentes.
+ Left Join: dado duas tabelas A e B, retém as linhas da A mesmo que não exista dado na B.
+ Right Join: dado duas tabelas A e B, retém as linhas da B mesmo que não exista dado na A.
+ Outer Join: dado duas tabelas A e B, retém tanto de A como de B se o inverso não existir.
+
